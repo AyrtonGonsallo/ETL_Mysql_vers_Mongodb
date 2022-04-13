@@ -4,8 +4,9 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+import org.springframework.lang.Nullable;
 
-
+import com.test.microservices.enums.MainDirectrice;
 import lombok.*;
 
 @Entity
@@ -26,10 +27,11 @@ public class Champion {
 	private String LieuNaissance;
 	private String Grade;
 	private String Clubs;
-	private int Taille;
-	private int Poids;
+	private Integer Taille;
+	private Integer Poids;
 	private String TokuiWaza;
-	private String MainDirectrice;
+	@Enumerated(EnumType.STRING)
+	private MainDirectrice MainDirectrice;
 	private String Activite;
 	private String Forces;
 	private String Idole;

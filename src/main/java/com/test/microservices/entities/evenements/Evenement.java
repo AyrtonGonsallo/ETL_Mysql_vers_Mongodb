@@ -32,7 +32,7 @@ public class Evenement {
 	@Temporal(TemporalType.TIMESTAMP)
 	public Date DatePub;
 	public String Presentation;
-	public byte Visible;
+	public int Visible;
 	@Enumerated(EnumType.STRING)
 	public TypeEvenement Type;
 	public String Document1;
@@ -42,8 +42,8 @@ public class Evenement {
 	public String Telephone;
 	public String Mail;
 	public String Web;
-	public byte Valider;
-	public byte Pack;
+	public int Valider;
+	public int Pack;
 	public String PaysID;
 	public int CategorieID;
 	public int CategorieageID;
@@ -61,10 +61,37 @@ public class Evenement {
 		else res+="null";
 		res+=",";
 		if(DatePub.toString()!="0000-00-00" && DatePub!=null )
-			res+="new SimpleDateFormat(\"yyyy-MM-dd\").parse(\"" + DatePub+"\")";
+			res+="new SimpleDateFormat(\"yyyy-MM-dd hh:mm:ss\").parse(\"" + DatePub+"\")";
 		else res+="null";
-		
-		
+		res+=",";
+		res+="\""+Presentation+"\","+Visible+",TypeEvenement."+Type+",\""+Document1+"\",\"";
+		res+=Document2+"\",\"";
+		res+=Document3+"\",";
+		if(Contact!=null)
+			res+="\""+Contact+"\",";
+		else
+			res+=null+",";
+		if(Telephone!=null)
+			res+="\""+Telephone+"\",";
+		else
+			res+=null+",";
+		if(Mail!=null)
+			res+="\""+Mail+"\",";
+		else
+			res+=null+",";
+		if(Web!=null)
+			res+="\""+Web+"\",";
+		else
+			res+=null+",";
+		res+=Valider+",";
+		res+=Pack+",";
+		if(PaysID!=null)
+			res+="\""+PaysID+"\",";
+		else
+			res+=null+",";
+		res+=CategorieID+",";
+		res+=CategorieageID+",";
+		res+=compteur;
 		res+="));";
 		return res;
 	}

@@ -66,6 +66,6 @@ public class ReaderWriter {
 		}
 
 		myWriter.close();
-		System.out.println("ecriture dans le fichier "+file+" fine");
+		System.out.println("ecriture dans le fichier "+file+" finie");
 	};
 }
